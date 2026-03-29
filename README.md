@@ -73,6 +73,7 @@ Acesse o diagrama:
 
 👉 https://dbdiagram.io/e/69c87652fb2db18e3b29d9cc/69c876aefb2db18e3b29daf3
 
+<img width="1206" height="422" alt="Untitled" src="https://github.com/user-attachments/assets/8fa4619c-d3d6-46a2-a0ee-062586ea1253" />
 
 ---
 
