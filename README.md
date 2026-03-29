@@ -66,6 +66,14 @@ O banco de dados foi estruturado com as seguintes entidades:
 
 ---
 
+## 🎨 Modelagem Visual
+
+Acesse o diagrama:
+
+👉 https://dbdiagram.io/e/69c87652fb2db18e3b29d9cc/69c876aefb2db18e3b29daf3
+
+---
+
 ## ▶️ Como Executar o Projeto
 
 1. Instale o PostgreSQL
