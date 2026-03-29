@@ -1,18 +1,18 @@
--- Tabela de clientes
+
 CREATE TABLE clientes (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     telefone VARCHAR(20)
 );
 
--- Tabela de produtos
+
 CREATE TABLE produtos (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     preco NUMERIC(10,2) NOT NULL
 );
 
--- Tabela de pedidos
+
 CREATE TABLE pedidos (
     id SERIAL PRIMARY KEY,
     cliente_id INT REFERENCES clientes(id),
@@ -27,7 +27,7 @@ CREATE TABLE pedidos (
     CHECK (status IN ('Em preparo', 'Pronto', 'Entregue', 'Cancelado'))
 );
 
--- Tabela de itens do pedido
+
 CREATE TABLE itens_pedido (
     id SERIAL PRIMARY KEY,
     pedido_id INT REFERENCES pedidos(id),
@@ -37,26 +37,26 @@ CREATE TABLE itens_pedido (
 );
 
 
--- Clientes
+
 INSERT INTO clientes (nome, telefone)
 VALUES 
 ('Vivian Maria', '88999999999'),
 ('Maria', '88988888888'),
 ('M. Vivian Gomes', '88988888888');
 
--- Produtos
+
 INSERT INTO produtos (nome, preco)
 VALUES
 ('Hambúrguer', 15.00),
 ('Batata Frita', 10.00),
 ('Refrigerante', 6.00);
 
--- Pedido com pagamento e entrega
+
 INSERT INTO pedidos (cliente_id, forma_pagamento, endereco_entrega, status)
 VALUES 
 (1, 'Pix', 'Rua das Flores, 123', 'Em preparo');
 
--- Itens do pedido
+
 INSERT INTO itens_pedido (pedido_id, produto_id, quantidade, subtotal)
 VALUES
 (1, 1, 2, 30.00),
@@ -82,6 +82,12 @@ SELECT
 FROM itens_pedido i
 JOIN produtos pr ON i.produto_id = pr.id
 WHERE i.pedido_id = 1;
+
+
+SELECT c.nome, COUNT(p.id)
+FROM clientes c
+JOIN pedidos p ON c.id = p.cliente_id
+GROUP BY c.nome;
 
 
 SELECT 
